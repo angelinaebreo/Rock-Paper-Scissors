@@ -14,8 +14,8 @@ const quitGame = () => {
 };
 
 const wannaPlay = () => {
-  let answer = readline.keyInYN(chalk.hex('ecc6ec').bold(
-    "Would you like to play 'Rock Paper Scissors'? \n")
+  let answer = readline.keyInYN(
+    chalk.hex("ccffff").bold("Would you like to play 'Rock Paper Scissors'? \n")
   );
 
   if (answer) {
@@ -28,7 +28,7 @@ const wannaPlay = () => {
 const playAgain = () => {
   let answer = readline.keyInYN("Would you like to play again? \n");
   if (answer) {
-    startGame();
+    gameLoop();
   } else {
     console.log(
       `Final score is: computer ${computerScore} - ${playerName} ${playerScore}`
@@ -39,23 +39,29 @@ const playAgain = () => {
 
 const startGame = () => {
   console.log(
-    "Instructions: Rock breaks scissors, scissors cut paper, paper covers rock"
+    `Instructions: Rock breaks scissors, scissors cut paper, paper covers rock`
   );
-  playerName = readline.question("What is your name? \n")
-gameLoop()
+  playerName = readline.question("What is your name? \n");
+  gameLoop();
 };
 
 const gameLoop = () => {
-playerChoice()
-   
-  };
+  playerChoice();
+};
 
 const playerChoice = () => {
   playerChose = readline.question(
     "What do you choose: rock, paper, or scissors? \n"
   );
-  if (playerChose === "rock" || playerChose === "paper" || playerChose === "scissors") {
-  computerChoice();
+  if (
+    playerChose.toLowerCase() === "rock" ||
+    playerChose.toLowerCase() === "paper" ||
+    playerChose.toLowerCase() === "scissors"
+  ) {
+    computerChoice();
+  } else {
+    console.log("Please enter a valid choice");
+    playerChoice();
   }
 };
 
@@ -63,88 +69,77 @@ const computerChoice = () => {
   let options = ["rock", "paper", "scissors"];
   let randomN = Math.floor(Math.random() * Math.floor(3));
   computerChose = options[randomN];
- whoWon()
+  whoWon();
 };
 
 const whoWon = () => {
- 
-
-    if (playerChose === "rock") {
-      if (computerChose === "rock") {
-        console.log("It is a tie");
-        playAgain();
-      } else if (computerChose === "paper") {
-        console.log("Computer won!");
-        computerScore++;
-        playAgain();
-      } else if (computerChose === "scissors") {
-        console.log(`${playerName} won!`);
-        playerScore++;
-        playAgain();
-      }
-    } else if (playerChose === "paper") {
-      if (computerChose === "paper") {
-        console.log("It is a tie");
-        playAgain();
-      } else if (computerChose === "rock") {
-        console.log(`${playerName} won!`);
-        playerScore++;
-        playAgain();
-      } else if (computerChose === "scissors") {
-        console.log("Computer won!");
-        computerScore++;
-        playAgain();
-      }
-    } else if (playerChose === "scissors") {
-      if (computerChose === "scissors") {
-        console.log("It is a tie");
-        playAgain();
-      } else if (computerChose === "rock") {
-        console.log("Computer won!");
-        computerScore++;
-        playAgain();
-      } else if (computerChose === "paper") {
-        console.log(`${playerName} won!`);
-        playerScore++;
-        playAgain();
-      }
+  if (playerChose.toLowerCase() === "rock") {
+    if (computerChose === "rock") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("00ffcc").bold(` It is a tie`)
+      );
+      playAgain();
+    } else if (computerChose === "paper") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("ff0000").bold(` Computer won!`)
+      );
+      computerScore++;
+      playAgain();
+    } else if (computerChose === "scissors") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("ffff00").bold(` ${playerName} won!`)
+      );
+      playerScore++;
+      playAgain();
     }
-
-
-//   if (playerChose === "rock" && computerChose === "rock") {
-//     console.log("It is a tie");
-//     playAgain();
-//   } else if (playerChose === "paper" && computerChose === "paper") {
-//     console.log("It is a tie");
-//     playAgain();
-//   } else if (playerChose === "scissors" && computerChose === "scissors") {
-//     console.log("It is a tie");
-//     playAgain();
-//   } else if (playerChose === "rock" && computerChose === "paper") {
-//     console.log("Computer won!");
-//     computerScore++;
-//     playAgain();
-//   } else if (playerChose === "rock" && computerChose === "scissors") {
-//     console.log(`${playerName} won!`);
-//     playerScore++;
-//     playAgain();
-//   } else if (playerChose === "scissors" && computerChose === "rock") {
-//     console.log("Computer won!");
-//     computerScore++;
-//     playAgain();
-//   } else if (playerChose === "scissors" && computerChose === "paper") {
-//     console.log(`${playerName} won!`);
-//     playerScore++;
-//     playAgain();
-//   } else if (playerChose === "paper" && computerChose === "rock") {
-//     console.log(`${playerName} won!`);
-//     playerScore++;
-//     playAgain();
-//   } else if (playerChose === "paper" && computerChose === "scissors") {
-//     console.log("Computer won!");
-//     computerScore++;
-//     playAgain();
-//   }
+  } else if (playerChose.toLowerCase() === "paper") {
+    if (computerChose === "paper") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("00ffcc").bold(` It is a tie`)
+      );
+      playAgain();
+    } else if (computerChose === "rock") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("ffff00").bold(` ${playerName} won!`)
+      );
+      playerScore++;
+      playAgain();
+    } else if (computerChose === "scissors") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("ff0000").bold(` Computer won!`)
+      );
+      computerScore++;
+      playAgain();
+    }
+  } else if (playerChose.toLowerCase() === "scissors") {
+    if (computerChose === "scissors") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("00ffcc").bold(` It is a tie`)
+      );
+      playAgain();
+    } else if (computerChose === "rock") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("ff0000").bold(` Computer won!`)
+      );
+      computerScore++;
+      playAgain();
+    } else if (computerChose === "paper") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+          chalk.hex("ffff00").bold(` ${playerName} won!`)
+      );
+      playerScore++;
+      playAgain();
+    }
+  }
 };
 
 wannaPlay();
