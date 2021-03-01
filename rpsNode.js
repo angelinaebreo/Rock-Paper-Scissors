@@ -82,14 +82,14 @@ const whoWon = () => {
       playAgain();
     } else if (computerChose === "paper") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
       computerScore++;
       playAgain();
     } else if (computerChose === "scissors") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes scissors.` +
           chalk.hex("ffff00").bold(` ${playerName} won!`)
       );
       playerScore++;
@@ -104,14 +104,14 @@ const whoWon = () => {
       playAgain();
     } else if (computerChose === "rock") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
           chalk.hex("ffff00").bold(` ${playerName} won!`)
       );
       playerScore++;
       playAgain();
     } else if (computerChose === "scissors") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Scissors cut paper.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
       computerScore++;
@@ -126,14 +126,14 @@ const whoWon = () => {
       playAgain();
     } else if (computerChose === "rock") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes scissors.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
       computerScore++;
       playAgain();
     } else if (computerChose === "paper") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
           chalk.hex("ffff00").bold(` ${playerName} won!`)
       );
       playerScore++;
