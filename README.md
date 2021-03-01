@@ -1,4 +1,4 @@
-![sunshine](/sunshine.jpeg)
+![rps](/61QkvmvEdVL.png)
 
 
 ## Rock Paper Scissors [Command Line Javascript Application]
