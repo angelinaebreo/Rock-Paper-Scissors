@@ -73,14 +73,18 @@ const computerChoice = () => {
 };
 
 const whoWon = () => {
+  if (playerChose.toLowerCase() === computerChose.toLowerCase()) {
+    console.log(
+      `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        chalk.hex("00ffcc").bold(` It is a tie`)
+    );
+    playAgain();
+  }
+
+
+
   if (playerChose.toLowerCase() === "rock") {
-    if (computerChose === "rock") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "paper") {
+    if (computerChose === "paper") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
           chalk.hex("ff0000").bold(` Computer won!`)
@@ -96,13 +100,7 @@ const whoWon = () => {
       playAgain();
     }
   } else if (playerChose.toLowerCase() === "paper") {
-    if (computerChose === "paper") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "rock") {
+    if (computerChose === "rock") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
           chalk.hex("ffff00").bold(` ${playerName} won!`)
@@ -118,13 +116,7 @@ const whoWon = () => {
       playAgain();
     }
   } else if (playerChose.toLowerCase() === "scissors") {
-    if (computerChose === "scissors") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "rock") {
+    if (computerChose === "rock") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes scissors.` +
           chalk.hex("ff0000").bold(` Computer won!`)

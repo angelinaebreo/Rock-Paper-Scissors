@@ -15,7 +15,9 @@ const quitGame = () => {
 
 const wannaPlay = () => {
   let answer = readline.keyInYN(
-    chalk.hex("ccffff").bold("Would you like to play 'Rock Paper Scissors Lizard Spock'? \n")
+    chalk
+      .hex("ccffff")
+      .bold("Would you like to play 'Rock Paper Scissors Lizard Spock'? \n")
   );
 
   if (answer) {
@@ -75,57 +77,44 @@ const computerChoice = () => {
 };
 
 const whoWon = () => {
-  if (playerChose.toLowerCase() === "rock") {
-    if (computerChose === "rock") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "paper") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
-          chalk.hex("ff0000").bold(` Computer won!`)
-      );
-      computerScore++;
-      playAgain();
-    } else if (computerChose === "scissors") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes scissors.` +
-          chalk.hex("ffff00").bold(` ${playerName} won!`)
-      );
-      playerScore++;
-      playAgain();
-    } else if (computerChose === "lizard") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes lizard.` +
-          chalk.hex("ffff00").bold(` ${playerName} won!`)
-      );
-      playerScore++;
-      playAgain();
-    } else if (computerChose === "spock") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Spock vaporizes rock.` +
-          chalk.hex("ff0000").bold(` Computer won!`)
-      );
-      computerScore++
-      playAgain()
-    }
-  } 
-  
-  
-  
-  
-  
-  
-  else if (playerChose.toLowerCase() === "paper") {
+  if (playerChose.toLowerCase() === computerChose) {
+    console.log(
+      `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
+        chalk.hex("00ffcc").bold(` It is a tie`)
+    );
+    playAgain();
+  } else if (playerChose.toLowerCase() === "rock") {
     if (computerChose === "paper") {
       console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
+          chalk.hex("ff0000").bold(` Computer won!`)
       );
+      computerScore++;
       playAgain();
-    } else if (computerChose === "rock") {
+    } else if (computerChose === "scissors") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes scissors.` +
+          chalk.hex("ffff00").bold(` ${playerName} won!`)
+      );
+      playerScore++;
+      playAgain();
+    } else if (computerChose === "lizard") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes lizard.` +
+          chalk.hex("ffff00").bold(` ${playerName} won!`)
+      );
+      playerScore++;
+      playAgain();
+    } else if (computerChose === "spock") {
+      console.log(
+        `Computer: ${computerChose} - ${playerName}: ${playerChose}. Spock vaporizes rock.` +
+          chalk.hex("ff0000").bold(` Computer won!`)
+      );
+      computerScore++;
+      playAgain();
+    }
+  } else if (playerChose.toLowerCase() === "paper") {
+    if (computerChose === "rock") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper covers rock.` +
           chalk.hex("ffff00").bold(` ${playerName} won!`)
@@ -144,8 +133,8 @@ const whoWon = () => {
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Lizard eats paper.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
-      computerScore++
-      playAgain()
+      computerScore++;
+      playAgain();
     } else if (computerChose === "spock") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper disproves spock.` +
@@ -154,24 +143,8 @@ const whoWon = () => {
       playerScore++;
       playAgain();
     }
-  } 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  else if (playerChose.toLowerCase() === "scissors") {
-    if (computerChose === "scissors") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "rock") {
+  } else if (playerChose.toLowerCase() === "scissors") {
+    if (computerChose === "rock") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes scissors.` +
           chalk.hex("ff0000").bold(` Computer won!`)
@@ -190,8 +163,8 @@ const whoWon = () => {
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Spock smashes scissors.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
-      computerScore++
-      playAgain()
+      computerScore++;
+      playAgain();
     } else if (computerChose === "lizard") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Scissors decapitate lizard.` +
@@ -200,20 +173,8 @@ const whoWon = () => {
       playerScore++;
       playAgain();
     }
-  }
-
-
-
-
-
-  else if (playerChose.toLowerCase() === "lizard") {
-    if (computerChose === "lizard") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "rock") {
+  } else if (playerChose.toLowerCase() === "lizard") {
+    if (computerChose === "rock") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Rock crushes lizard.` +
           chalk.hex("ff0000").bold(` Computer won!`)
@@ -232,8 +193,8 @@ const whoWon = () => {
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Scissors decapitate lizard.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
-      computerScore++
-      playAgain()
+      computerScore++;
+      playAgain();
     } else if (computerChose === "paper") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Lizard eats paper.` +
@@ -242,24 +203,8 @@ const whoWon = () => {
       playerScore++;
       playAgain();
     }
-  }
-
-
-
-
-
-
-
-
-
-  else if (playerChose.toLowerCase() === "spock") {
-    if (computerChose === "spock") {
-      console.log(
-        `Computer: ${computerChose} - ${playerName}: ${playerChose}.` +
-          chalk.hex("00ffcc").bold(` It is a tie`)
-      );
-      playAgain();
-    } else if (computerChose === "paper") {
+  } else if (playerChose.toLowerCase() === "spock") {
+    if (computerChose === "paper") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Paper disproves spock.` +
           chalk.hex("ff0000").bold(` Computer won!`)
@@ -278,8 +223,8 @@ const whoWon = () => {
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Lizard poisons spock.` +
           chalk.hex("ff0000").bold(` Computer won!`)
       );
-      computerScore++
-      playAgain()
+      computerScore++;
+      playAgain();
     } else if (computerChose === "scissors") {
       console.log(
         `Computer: ${computerChose} - ${playerName}: ${playerChose}. Spock smashes scissors.` +
@@ -289,10 +234,6 @@ const whoWon = () => {
       playAgain();
     }
   }
-
-
-
-
 };
 
 wannaPlay();
