@@ -6,7 +6,7 @@
 A simple "rock paper scissors" game or "rock paper scissors lizard spock" for The Big Bang Theory fans
 ![rules](/FIUAIWEI7Q0TCUT.jpg)
 
-![rps gif(./rlsgiphy.gif)
+![rps gif](./rlsgiphy.gif)
 
 ### Setup
 
